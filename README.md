@@ -1,6 +1,3 @@
-[todoapprecord.webm](https://github.com/SelomieK/todoapp/assets/75025744/fae71cd6-1e93-499a-ade7-a85df8adafab)# todo
-
-A new Flutter project.
 # todoapp
 
 ## Android application that performs todo add and delete using lists
