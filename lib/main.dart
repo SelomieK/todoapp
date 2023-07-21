@@ -49,7 +49,8 @@ class _Todostate extends State<Todo> {
   // method to implement adding textinput to the todo list
   void _addtodo() {
     setState(() {
-      todos.add(('$_textFieldValue ')); //adds last input at the end of list
+      todos.add(
+          ('$_textFieldValue ')); //Requirement 1: adds last input at the end of list
     });
   }
 
@@ -140,18 +141,19 @@ class _Todostate extends State<Todo> {
     return ListView.separated(
         separatorBuilder: (context, index) => const Divider(),
         itemCount: todos.length,
-        reverse: true,
+        reverse: true, //move the scroll up when we add item
         itemBuilder: ((context, index) {
+          // Requiremnt 3: Following the above, the new text can be put last on the list
+          //to fullfill Req3 of assignment we need to adjust the index of last added item to first so that it is displayed at last of listview
           return ListTile(
-              title:
-                  Text(todos[index]), //add list elements to the listile items
+              title: Text(todos[todos.length - 1 - index]),
               tileColor: Colors.greenAccent,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8)),
               onTap: () {
-                //when item in the listile is tapped it will be removed from the list and listview
+                //Requirement 2 when item in the listile is tapped it will be removed from the list and listview
                 setState(() {
-                  todos.remove(todos[index]);
+                  todos.remove(todos[todos.length - 1 - index]);
                   AlertDialog alert = const AlertDialog(
                     //alert dialog telling the user the item is moved to done
                     title: Text('You are done with a selected todo'),
